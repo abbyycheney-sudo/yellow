@@ -1,0 +1,59 @@
+
+ body {
+            background-image: url('../images/wallpaper.png');
+            background-position: center;
+            background-size: cover;
+        }
+        .words {
+            font-family: times, serif;
+            font-size: 20px;
+            color:#377369;
+        }
+        .basictext {
+            font-family: times, sans-serif;
+            font-size: 20px;
+            color: rgb(54, 28, 83);
+            text-align: center;
+        }
+        .importantwords {
+            font-family: sans-serif;
+            font-size: 22px;
+            font-style: italic;
+            color: rgb(95, 69, 130);
+            font-weight: bold;
+        }
+        .smol {
+            font-family: sans-serif, serif;
+            font-size: 15px;
+            color:#18371f;
+        }
+        .page {
+            text-align: center;
+            font-family: times, Gothic, sans-serif;
+            left: 25px;
+            right: 25px;
+        }
+       
+        .centerimage {
+            height: 200px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%; /* Adjust the width as needed */
+            border: 8px rgb(156, 208, 225) solid;
+        }
+        .webpagelinks {
+            text-align: right;
+            Font-family: times, sans-serif;
+            Color: rgb(67, 0, 139);
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            height: 150px;
+            z-index: 4;
+        }
+        .wallpaper {
+            background-image: url('../images/wallpaper.png');
+            background-position: top left;
+            background-size: cover;
+        }

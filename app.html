@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classic Book Quiz</title>
+
+    <div class="webpagelinks">
+        <a href="app.html" id="top">App</a><br><br>
+        <a href="resume.html">Resume</a><br><br> 
+        <a href="tableau.html">Tableau</a><br><br>
+        <a href="blog.html">Blog</a><br><br>
+    </div>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #bde5fc;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px lightgray;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.correct {
+    background-color: lightgreen;
+}
+
+.wrong {
+    background-color: salmon;
+}
+
+#score {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🪷✨📜 What's the Fairy Tale? 📜✨🪷</h1>
+
+<p id="description"></p>
+
+<div id="choices"></div>
+
+<p id="feedback"></p>
+
+<p id="score"></p>
+
+<button onclick="restartQuiz()">Restart Quiz</button>
+
+</div>
+
+<script>
+
+const questions = [
+{
+description: "A fairy godmother grants a wish allowing a woman to dance at a royal ball until midnight.",
+options: ["Cinderella", "Snow White", "Sleeping Beauty", "Thumbelina"],
+answer: "Cinderella"
+},
+{
+description: "While travling through the woods to her grandmothers house, a young girl meets a wolf.",
+options: ["Repunzel", "Hansel and Gretel", "Snow White", "Little Red Riding Hood"],
+answer: "Little Red Riding Hood"
+},
+{
+description: "In neverland a boy and his friend tinkerbell never grow up and fight pirates.",
+options: ["Rumpelstiltskin", "Peter Pan", "Jack and the Beanstalk", "Cinderella"],
+answer: "Peter Pan"
+},
+{
+description: "Two hungrey children encounter a witches burrow made of sweets.",
+options: ["Harry Potter", "Peter Pan", "Jack and Jill", "Hansel and Gretel"],
+answer: "Hansel and Gretel"
+},
+{
+description: "A maiden trades her first born child for gold-spun hair.",
+options: ["Rumpelstiltskin", "Sleeping Beauty", "Peter Pan", "Jack and Jill"],
+answer: "Rumpelstiltskin"
+}
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+
+    if(currentQuestion >= questions.length) {
+        document.getElementById("description").innerHTML =
+            "🧚🏻‍♀️ Quiz Complete!";
+        document.getElementById("choices").innerHTML = "";
+        document.getElementById("feedback").innerHTML = "";
+        document.getElementById("score").innerHTML =
+            "Final Score: " + score + " / " + questions.length;
+        return;
+    }
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("description").innerHTML =
+        q.description;
+
+    const choicesDiv =
+        document.getElementById("choices");
+
+    choicesDiv.innerHTML = "";
+
+    q.options.forEach(option => {
+
+        const button =
+            document.createElement("button");
+
+        button.innerHTML = option;
+
+        button.onclick = function() {
+            checkAnswer(option);
+        };
+
+        choicesDiv.appendChild(button);
+    });
+}
+
+function checkAnswer(choice) {
+
+    const correct =
+        questions[currentQuestion].answer;
+
+    if(choice === correct) {
+        score++;
+        document.getElementById("feedback").innerHTML =
+            "✅ Correct!";
+    }
+    else {
+        document.getElementById("feedback").innerHTML =
+            "❌ Correct answer: " + correct;
+    }
+
+    currentQuestion++;
+
+    setTimeout(loadQuestion, 1200);
+}
+
+function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    document.getElementById("feedback").innerHTML = "";
+    document.getElementById("score").innerHTML = "";
+    loadQuestion();
+}
+
+loadQuestion();
+
+</script>
+<br>
+<br>
+<br>
+<br>
+    <h4 class="page">𓍊𓋼𓍊𖡼.𖤣𖥧𖡼.𖤣𖥧𓋼𓍊𓋼 ── ⋆⋅𖤓⋅⋆ ── 𖤓 ── ⋆⋅𖤓⋅⋆ ── 𓍊𓋼𓍊𖡼.𖤣𖥧𖡼.𖤣𖥧𓋼𓍊𓋼</h4>
+        <style>
+        h4 {
+            text-align: center;
+        }
+        </style>
+
+</body>
+</html>
